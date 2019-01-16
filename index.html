@@ -17,8 +17,8 @@
         input     { font-size:22px; line-height:20px; width:90px; height:40px; border:3px solid #333; margin:5px; padding:5px; box-sizing: border-box; }
         #result_per, #result_hours   { font-size:24px; line-height:40px; font-weight:700; margin:5px; }
         #result_mtm     { font-size:24px; line-height:40px; font-weight:700; margin:5px; }
-        #result_mtm li { font-size:16px; line-height: 24px; font-weight: 500; }
-        .about    { font-size:16px; line-height:24px; color:#333; border-top:1px solid #333; margin: 40px 0 0 0; padding: 20px 0 0 0; } 
+        #result_mtm li  { font-size:16px; line-height: 24px; font-weight: 500; }
+        .about          { font-size:16px; line-height:24px; color:#333; border-top:1px solid #333; margin: 40px 0 0 0; padding: 20px 0 0 0; } 
         @media only screen and (max-width: 767px) {
             input     { font-size:16px; line-height:20px; width:90px; height:50px; }
         }
@@ -40,16 +40,13 @@
     <script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js">\x3C/script>')</script>
     <script type="text/javascript">
         function go(){
-          $("#result").html("working...");
-          
-          
+          //$("#result").html("working...");
+
           if(isNaN(parseFloat($("#days").val()))){
             $("#days").val('');
             $("#result_hours").html("Enter PTO Annuals Days.");
             return false;
           }
-          
-          
 
           var days = parseFloat($("#days").val())
           var hours = days * 8;
@@ -61,7 +58,6 @@
           $("#result_per").html(accrual+" hours of accrual, first of the month.");
           
           var mtm = [];
-          
           mtm.push("<h2>PTO Accrual Throughout 2019</h2>");
           mtm.push("<ul>");
           mtm.push("<li>Jan 15, 2019: "+fullaccrual.toFixed(4)+" hours, "+fulldays.toFixed(1)+" days.</li>");
@@ -76,11 +72,7 @@
           mtm.push("<li>Oct 15, 2019: "+(fullaccrual*10).toFixed(4)+" hours, "+(fulldays * 10).toFixed(1)+" days.</li></li>");
           mtm.push("<li>Nov 15, 2019: "+(fullaccrual*11).toFixed(4)+" hours, "+(fulldays * 11).toFixed(1)+" days.</li></li>");
           mtm.push("</ul>");
-          
           var mtmhtml = mtm.join("\n");
-          
-          
-          
           $("#result_mtm").html(mtmhtml);
         }
 
