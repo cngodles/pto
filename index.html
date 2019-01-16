@@ -30,7 +30,7 @@
 <body>
     <div id="stage">
         <h1>PTO</h1>
-        <div><input type="number" id="days" value="10" step="1"> PTO Annual Days</div>
+        <div><input type="number" id="days" value="10" step="1" pattern="[0-9]*" inputmode="numeric"> PTO Annual Days</div>
         <div id="result_hours">...</div>
         <div id="result_per">...</div>
         <div id="result_mtm">...</div>
@@ -50,7 +50,7 @@
 
           var days = parseFloat($("#days").val())
           var hours = days * 8;
-          var accrual = (hours / 11).toFixed(4);
+          var accrual = (hours / 11).toFixed(2);
           var fullaccrual = hours / 11;
           var fulldays = days / 11;
           
@@ -60,17 +60,17 @@
           var mtm = [];
           mtm.push("<h2>PTO Accrual Throughout 2019</h2>");
           mtm.push("<ul>");
-          mtm.push("<li>Jan 15, 2019: "+fullaccrual.toFixed(4)+" hours, "+fulldays.toFixed(1)+" days.</li>");
-          mtm.push("<li>Feb 15, 2019: "+(fullaccrual*2).toFixed(4)+" hours, "+(fulldays * 2).toFixed(1)+" days.</li>");
-          mtm.push("<li>Mar 15, 2019: "+(fullaccrual*3).toFixed(4)+" hours, "+(fulldays * 3).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Apr 15, 2019: "+(fullaccrual*4).toFixed(4)+" hours, "+(fulldays * 4).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>May 15, 2019: "+(fullaccrual*5).toFixed(4)+" hours, "+(fulldays * 5).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Jun 15, 2019: "+(fullaccrual*6).toFixed(4)+" hours, "+(fulldays * 6).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Jul 15, 2019: "+(fullaccrual*7).toFixed(4)+" hours, "+(fulldays * 7).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Aug 15, 2019: "+(fullaccrual*8).toFixed(4)+" hours, "+(fulldays * 8).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Sep 15, 2019: "+(fullaccrual*9).toFixed(4)+" hours, "+(fulldays * 9).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Oct 15, 2019: "+(fullaccrual*10).toFixed(4)+" hours, "+(fulldays * 10).toFixed(1)+" days.</li></li>");
-          mtm.push("<li>Nov 15, 2019: "+(fullaccrual*11).toFixed(4)+" hours, "+(fulldays * 11).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Jan 15, 2019: "+fullaccrual.toFixed(2)+" hours, "+fulldays.toFixed(1)+" days.</li>");
+          mtm.push("<li>Feb 15, 2019: "+(fullaccrual*2).toFixed(2)+" hours, "+(fulldays * 2).toFixed(1)+" days.</li>");
+          mtm.push("<li>Mar 15, 2019: "+(fullaccrual*3).toFixed(2)+" hours, "+(fulldays * 3).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Apr 15, 2019: "+(fullaccrual*4).toFixed(2)+" hours, "+(fulldays * 4).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>May 15, 2019: "+(fullaccrual*5).toFixed(2)+" hours, "+(fulldays * 5).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Jun 15, 2019: "+(fullaccrual*6).toFixed(2)+" hours, "+(fulldays * 6).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Jul 15, 2019: "+(fullaccrual*7).toFixed(2)+" hours, "+(fulldays * 7).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Aug 15, 2019: "+(fullaccrual*8).toFixed(2)+" hours, "+(fulldays * 8).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Sep 15, 2019: "+(fullaccrual*9).toFixed(2)+" hours, "+(fulldays * 9).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Oct 15, 2019: "+(fullaccrual*10).toFixed(2)+" hours, "+(fulldays * 10).toFixed(1)+" days.</li></li>");
+          mtm.push("<li>Nov 15, 2019: "+(fullaccrual*11).toFixed(2)+" hours, "+(fulldays * 11).toFixed(1)+" days.</li></li>");
           mtm.push("</ul>");
           var mtmhtml = mtm.join("\n");
           $("#result_mtm").html(mtmhtml);
